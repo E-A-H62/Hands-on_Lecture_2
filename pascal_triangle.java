@@ -42,3 +42,36 @@ public class pascal_triangle {
         System.out.println(t2); // prints out triangle
     }
 }
+
+// an optimized solution was provided in Canvas
+/*
+public class PascalsTriangleMemoized {
+    // map to store computed vals for Pascal's triangle
+    // helps avoid having to repeat calculations in another for loop
+    private static Map<String, Integer> memo = new HashMap<>();
+
+    // returns value of specific position in Pascal's triangle
+    public static int getValue(int row, int col) {
+        if (col == 0 || col == row) return 1; // checks if position is edges of triangle
+        String key = row + "," + col; // creates key for current position
+        if (!memo.containsKey(key)) { // checks if need to calculate value at specific position
+            memo.put(key, getValue(row - 1, col - 1) + getValue(row - 1, col));
+        }
+        return memo.get(key); // return value for current position in triangle
+    }
+
+    // creates numRows of Pascal's Triangle
+    public static List<List<Integer>> generate(int numRows) {
+        // create list to hold rows of Pascal's triangle
+        List<List<Integer>> triangle = new ArrayList<>();
+        // iterate through each position in row to populate Pascal's triangle
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> row = new ArrayList<>();
+            // finds value at specific position using HashMap
+            for (int j = 0; j <= i; j++) row.add(getValue(i, j));
+            triangle.add(row);
+        }
+        return triangle; // returns Pascal's triangle
+    }
+}
+*/

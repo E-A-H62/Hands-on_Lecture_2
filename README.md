@@ -11,6 +11,8 @@ The two problems to be solved are:
 In Pascal's triangle, each number is the sum of the two numbers directly above it. This problem asks for a given number of rows of Pascal's triangle.
 ### Solution Time Complexity
 The solution involves three for loops (one to iterate through each row, one to fill the triangle with ones, and another to fill out each row), but of the three loops only two of them consist of operations that take more than an O(n) time complexity. These two loops are the dominant parts of the runtime (since the other loops will consistly add a one to the rows in O(1)) because they iterate through the rows of the triangle and carry out a more complex algorithm to sum up numbers in each row. As a result, the time complexity of the included solution is O(n^2).
+### Optimized Solution Time Complexity
+An optimized solution for this problem could use a HashMap. By using a Hashmap it becomes possible to store (cache) computed values of Pascal's triangle. By caching the computed values, it becomes possible to use only one for loop to create the triangle from the values that have already been computed. As a result, the time complexity would depend simply on the number of rows of the Pascal triangle, making the solution have a runtime of O(n).
 
 ## Spiral Matrix
 ### Problem Description
